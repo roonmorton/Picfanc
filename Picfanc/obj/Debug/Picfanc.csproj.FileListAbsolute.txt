@@ -1,2 +1,11 @@
 C:\Users\Soporte\Documents\GitHub\AIG-desk-manage\Picfanc\Picfanc\bin\Debug\Picfanc.exe.config
 C:\Users\Soporte\Documents\GitHub\Picfanc\Picfanc\bin\Debug\Picfanc.exe.config
+C:\Users\Soporte\Documents\GitHub\Picfanc\Picfanc\bin\Debug\Picfanc.exe
+C:\Users\Soporte\Documents\GitHub\Picfanc\Picfanc\bin\Debug\Picfanc.pdb
+C:\Users\Soporte\Documents\GitHub\Picfanc\Picfanc\obj\Debug\Picfanc.Inicio.resources
+C:\Users\Soporte\Documents\GitHub\Picfanc\Picfanc\obj\Debug\Picfanc.Properties.Resources.resources
+C:\Users\Soporte\Documents\GitHub\Picfanc\Picfanc\obj\Debug\Picfanc.csproj.GenerateResource.Cache
+C:\Users\Soporte\Documents\GitHub\Picfanc\Picfanc\obj\Debug\Picfanc.exe
+C:\Users\Soporte\Documents\GitHub\Picfanc\Picfanc\obj\Debug\Picfanc.pdb
+C:\Users\Soporte\Documents\GitHub\Picfanc\Picfanc\obj\Debug\Picfanc.csprojResolveAssemblyReference.cache
+C:\Users\Soporte\Documents\GitHub\Picfanc\Picfanc\obj\Debug\Picfanc.Form1.resources
