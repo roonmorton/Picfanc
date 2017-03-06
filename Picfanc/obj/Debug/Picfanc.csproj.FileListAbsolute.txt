@@ -1,0 +1,2 @@
+C:\Users\Soporte\Documents\GitHub\AIG-desk-manage\Picfanc\Picfanc\bin\Debug\Picfanc.exe.config
+C:\Users\Soporte\Documents\GitHub\Picfanc\Picfanc\bin\Debug\Picfanc.exe.config
