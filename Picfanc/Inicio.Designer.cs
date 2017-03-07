@@ -28,73 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.boxCerrar = new System.Windows.Forms.PictureBox();
-            this.boxMinimizar = new System.Windows.Forms.PictureBox();
             this.panelBorder = new System.Windows.Forms.Panel();
             this.btnAutomatico = new System.Windows.Forms.Button();
             this.btnManual = new System.Windows.Forms.Button();
             this.sepAutomatico = new System.Windows.Forms.Panel();
             this.sepManual = new System.Windows.Forms.Panel();
-            this.panelAuto = new System.Windows.Forms.Panel();
+            this.contenedor = new System.Windows.Forms.Panel();
+            this.lblAutoEstado = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lblAutoTemp = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.picAutomatico = new System.Windows.Forms.PictureBox();
-            this.lblAutoEstado = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lblSalida = new System.Windows.Forms.Label();
             this.btnOnOff = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblManualestado = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lblManualTemp = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.picManual = new System.Windows.Forms.PictureBox();
+            this.imagen = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.boxCerrar = new System.Windows.Forms.PictureBox();
+            this.boxMinimizar = new System.Windows.Forms.PictureBox();
+            this.panelBorder.SuspendLayout();
+            this.contenedor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imagen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boxCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boxMinimizar)).BeginInit();
-            this.panelBorder.SuspendLayout();
-            this.panelAuto.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picAutomatico)).BeginInit();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picManual)).BeginInit();
             this.SuspendLayout();
-            // 
-            // boxCerrar
-            // 
-            this.boxCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.boxCerrar.BackgroundImage = global::Picfanc.Properties.Resources.cancel;
-            this.boxCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.boxCerrar.Location = new System.Drawing.Point(699, 3);
-            this.boxCerrar.Name = "boxCerrar";
-            this.boxCerrar.Size = new System.Drawing.Size(37, 37);
-            this.boxCerrar.TabIndex = 0;
-            this.boxCerrar.TabStop = false;
-            this.boxCerrar.Click += new System.EventHandler(this.boxCerrar_Click);
-            // 
-            // boxMinimizar
-            // 
-            this.boxMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.boxMinimizar.BackgroundImage = global::Picfanc.Properties.Resources.minimize;
-            this.boxMinimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.boxMinimizar.Location = new System.Drawing.Point(655, 3);
-            this.boxMinimizar.Name = "boxMinimizar";
-            this.boxMinimizar.Size = new System.Drawing.Size(37, 37);
-            this.boxMinimizar.TabIndex = 1;
-            this.boxMinimizar.TabStop = false;
-            this.boxMinimizar.Click += new System.EventHandler(this.boxMinimizar_Click);
             // 
             // panelBorder
             // 
+            this.panelBorder.Controls.Add(this.button1);
             this.panelBorder.Controls.Add(this.boxCerrar);
             this.panelBorder.Controls.Add(this.boxMinimizar);
             this.panelBorder.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelBorder.Location = new System.Drawing.Point(0, 0);
             this.panelBorder.Name = "panelBorder";
-            this.panelBorder.Size = new System.Drawing.Size(742, 45);
+            this.panelBorder.Size = new System.Drawing.Size(382, 37);
             this.panelBorder.TabIndex = 2;
+            this.panelBorder.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Mouse_Down);
             // 
             // btnAutomatico
             // 
+            this.btnAutomatico.Enabled = false;
             this.btnAutomatico.FlatAppearance.BorderSize = 0;
             this.btnAutomatico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAutomatico.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -109,6 +81,7 @@
             // 
             // btnManual
             // 
+            this.btnManual.Enabled = false;
             this.btnManual.FlatAppearance.BorderSize = 0;
             this.btnManual.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnManual.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -136,18 +109,41 @@
             this.sepManual.Size = new System.Drawing.Size(159, 5);
             this.sepManual.TabIndex = 6;
             // 
-            // panelAuto
+            // contenedor
             // 
-            this.panelAuto.Controls.Add(this.lblAutoEstado);
-            this.panelAuto.Controls.Add(this.label11);
-            this.panelAuto.Controls.Add(this.label3);
-            this.panelAuto.Controls.Add(this.lblAutoTemp);
-            this.panelAuto.Controls.Add(this.label1);
-            this.panelAuto.Controls.Add(this.picAutomatico);
-            this.panelAuto.Location = new System.Drawing.Point(29, 133);
-            this.panelAuto.Name = "panelAuto";
-            this.panelAuto.Size = new System.Drawing.Size(324, 373);
-            this.panelAuto.TabIndex = 7;
+            this.contenedor.Controls.Add(this.lblAutoEstado);
+            this.contenedor.Controls.Add(this.label11);
+            this.contenedor.Controls.Add(this.label3);
+            this.contenedor.Controls.Add(this.btnOnOff);
+            this.contenedor.Controls.Add(this.lblAutoTemp);
+            this.contenedor.Controls.Add(this.label1);
+            this.contenedor.Controls.Add(this.imagen);
+            this.contenedor.Location = new System.Drawing.Point(29, 133);
+            this.contenedor.Name = "contenedor";
+            this.contenedor.Size = new System.Drawing.Size(324, 373);
+            this.contenedor.TabIndex = 7;
+            // 
+            // lblAutoEstado
+            // 
+            this.lblAutoEstado.AutoSize = true;
+            this.lblAutoEstado.Font = new System.Drawing.Font("Segoe UI", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAutoEstado.ForeColor = System.Drawing.Color.White;
+            this.lblAutoEstado.Location = new System.Drawing.Point(165, 218);
+            this.lblAutoEstado.Name = "lblAutoEstado";
+            this.lblAutoEstado.Size = new System.Drawing.Size(133, 86);
+            this.lblAutoEstado.TabIndex = 5;
+            this.lblAutoEstado.Text = "ON";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(175, 188);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(53, 30);
+            this.label11.TabIndex = 4;
+            this.label11.Text = "FAN";
             // 
             // label3
             // 
@@ -182,134 +178,87 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Temperatura";
             // 
-            // picAutomatico
+            // lblSalida
             // 
-            this.picAutomatico.Location = new System.Drawing.Point(24, 13);
-            this.picAutomatico.Name = "picAutomatico";
-            this.picAutomatico.Size = new System.Drawing.Size(212, 150);
-            this.picAutomatico.TabIndex = 0;
-            this.picAutomatico.TabStop = false;
-            // 
-            // lblAutoEstado
-            // 
-            this.lblAutoEstado.AutoSize = true;
-            this.lblAutoEstado.Font = new System.Drawing.Font("Segoe UI", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAutoEstado.ForeColor = System.Drawing.Color.White;
-            this.lblAutoEstado.Location = new System.Drawing.Point(165, 218);
-            this.lblAutoEstado.Name = "lblAutoEstado";
-            this.lblAutoEstado.Size = new System.Drawing.Size(133, 86);
-            this.lblAutoEstado.TabIndex = 5;
-            this.lblAutoEstado.Text = "ON";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(175, 188);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(53, 30);
-            this.label11.TabIndex = 4;
-            this.label11.Text = "FAN";
+            this.lblSalida.AutoSize = true;
+            this.lblSalida.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSalida.ForeColor = System.Drawing.Color.White;
+            this.lblSalida.Location = new System.Drawing.Point(24, 526);
+            this.lblSalida.Name = "lblSalida";
+            this.lblSalida.Size = new System.Drawing.Size(28, 30);
+            this.lblSalida.TabIndex = 9;
+            this.lblSalida.Text = "...";
             // 
             // btnOnOff
             // 
+            this.btnOnOff.Enabled = false;
             this.btnOnOff.FlatAppearance.BorderSize = 0;
             this.btnOnOff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOnOff.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOnOff.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOnOff.ForeColor = System.Drawing.Color.White;
-            this.btnOnOff.Location = new System.Drawing.Point(39, 316);
+            this.btnOnOff.Image = global::Picfanc.Properties.Resources.Flash_Off_24px;
+            this.btnOnOff.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnOnOff.Location = new System.Drawing.Point(24, 317);
             this.btnOnOff.Name = "btnOnOff";
-            this.btnOnOff.Size = new System.Drawing.Size(256, 38);
+            this.btnOnOff.Size = new System.Drawing.Size(274, 53);
             this.btnOnOff.TabIndex = 4;
             this.btnOnOff.Text = "Encender";
+            this.btnOnOff.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnOnOff.UseVisualStyleBackColor = true;
+            this.btnOnOff.Click += new System.EventHandler(this.btnOnOff_Click);
             // 
-            // panel1
+            // imagen
             // 
-            this.panel1.Controls.Add(this.lblManualestado);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.btnOnOff);
-            this.panel1.Controls.Add(this.lblManualTemp);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.picManual);
-            this.panel1.Location = new System.Drawing.Point(384, 133);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(324, 373);
-            this.panel1.TabIndex = 8;
+            this.imagen.Location = new System.Drawing.Point(24, 13);
+            this.imagen.Name = "imagen";
+            this.imagen.Size = new System.Drawing.Size(212, 150);
+            this.imagen.TabIndex = 0;
+            this.imagen.TabStop = false;
             // 
-            // lblManualestado
+            // button1
             // 
-            this.lblManualestado.AutoSize = true;
-            this.lblManualestado.Font = new System.Drawing.Font("Segoe UI", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblManualestado.ForeColor = System.Drawing.Color.White;
-            this.lblManualestado.Location = new System.Drawing.Point(165, 218);
-            this.lblManualestado.Name = "lblManualestado";
-            this.lblManualestado.Size = new System.Drawing.Size(147, 86);
-            this.lblManualestado.TabIndex = 5;
-            this.lblManualestado.Text = "OFF";
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = global::Picfanc.Properties.Resources.Restart_32px;
+            this.button1.Location = new System.Drawing.Point(3, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(38, 33);
+            this.button1.TabIndex = 10;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label5
+            // boxCerrar
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(175, 188);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 30);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "FAN";
+            this.boxCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.boxCerrar.BackgroundImage = global::Picfanc.Properties.Resources.Close_Window_32px;
+            this.boxCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.boxCerrar.Location = new System.Drawing.Point(339, 3);
+            this.boxCerrar.Name = "boxCerrar";
+            this.boxCerrar.Size = new System.Drawing.Size(37, 35);
+            this.boxCerrar.TabIndex = 0;
+            this.boxCerrar.TabStop = false;
+            this.boxCerrar.Click += new System.EventHandler(this.boxCerrar_Click);
             // 
-            // label6
+            // boxMinimizar
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(105, 218);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(26, 30);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "o";
-            // 
-            // lblManualTemp
-            // 
-            this.lblManualTemp.AutoSize = true;
-            this.lblManualTemp.Font = new System.Drawing.Font("Segoe UI", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblManualTemp.ForeColor = System.Drawing.Color.White;
-            this.lblManualTemp.Location = new System.Drawing.Point(24, 218);
-            this.lblManualTemp.Name = "lblManualTemp";
-            this.lblManualTemp.Size = new System.Drawing.Size(107, 86);
-            this.lblManualTemp.TabIndex = 2;
-            this.lblManualTemp.Text = "32";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(19, 188);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(131, 30);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "Temperatura";
-            // 
-            // picManual
-            // 
-            this.picManual.Location = new System.Drawing.Point(24, 13);
-            this.picManual.Name = "picManual";
-            this.picManual.Size = new System.Drawing.Size(212, 150);
-            this.picManual.TabIndex = 0;
-            this.picManual.TabStop = false;
+            this.boxMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.boxMinimizar.BackgroundImage = global::Picfanc.Properties.Resources.Minimize_Window_32px;
+            this.boxMinimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.boxMinimizar.Location = new System.Drawing.Point(301, 3);
+            this.boxMinimizar.Name = "boxMinimizar";
+            this.boxMinimizar.Size = new System.Drawing.Size(37, 35);
+            this.boxMinimizar.TabIndex = 1;
+            this.boxMinimizar.TabStop = false;
+            this.boxMinimizar.Click += new System.EventHandler(this.boxMinimizar_Click);
             // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(742, 531);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panelAuto);
+            this.ClientSize = new System.Drawing.Size(382, 565);
+            this.Controls.Add(this.lblSalida);
+            this.Controls.Add(this.contenedor);
             this.Controls.Add(this.sepManual);
             this.Controls.Add(this.sepAutomatico);
             this.Controls.Add(this.btnManual);
@@ -320,16 +269,14 @@
             this.Name = "Inicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Picfanc";
+            this.panelBorder.ResumeLayout(false);
+            this.contenedor.ResumeLayout(false);
+            this.contenedor.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imagen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.boxCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.boxMinimizar)).EndInit();
-            this.panelBorder.ResumeLayout(false);
-            this.panelAuto.ResumeLayout(false);
-            this.panelAuto.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picAutomatico)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picManual)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -342,21 +289,16 @@
         private System.Windows.Forms.Button btnManual;
         private System.Windows.Forms.Panel sepAutomatico;
         private System.Windows.Forms.Panel sepManual;
-        private System.Windows.Forms.Panel panelAuto;
-        private System.Windows.Forms.PictureBox picAutomatico;
+        private System.Windows.Forms.Panel contenedor;
+        private System.Windows.Forms.PictureBox imagen;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblAutoTemp;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblAutoEstado;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button btnOnOff;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lblManualestado;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label lblManualTemp;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.PictureBox picManual;
+        private System.Windows.Forms.Label lblSalida;
+        private System.Windows.Forms.Button button1;
     }
 }
 

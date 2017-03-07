@@ -7,5 +7,4 @@ C:\Users\Soporte\Documents\GitHub\Picfanc\Picfanc\obj\Debug\Picfanc.Properties.R
 C:\Users\Soporte\Documents\GitHub\Picfanc\Picfanc\obj\Debug\Picfanc.csproj.GenerateResource.Cache
 C:\Users\Soporte\Documents\GitHub\Picfanc\Picfanc\obj\Debug\Picfanc.exe
 C:\Users\Soporte\Documents\GitHub\Picfanc\Picfanc\obj\Debug\Picfanc.pdb
-C:\Users\Soporte\Documents\GitHub\Picfanc\Picfanc\obj\Debug\Picfanc.csprojResolveAssemblyReference.cache
 C:\Users\Soporte\Documents\GitHub\Picfanc\Picfanc\obj\Debug\Picfanc.Form1.resources
