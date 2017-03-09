@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.panelBorder = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.boxCerrar = new System.Windows.Forms.PictureBox();
+            this.boxMinimizar = new System.Windows.Forms.PictureBox();
             this.btnAutomatico = new System.Windows.Forms.Button();
             this.btnManual = new System.Windows.Forms.Button();
             this.sepAutomatico = new System.Windows.Forms.Panel();
@@ -37,19 +40,17 @@
             this.lblAutoEstado = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnOnOff = new System.Windows.Forms.Button();
             this.lblAutoTemp = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblSalida = new System.Windows.Forms.Label();
-            this.btnOnOff = new System.Windows.Forms.Button();
             this.imagen = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.boxCerrar = new System.Windows.Forms.PictureBox();
-            this.boxMinimizar = new System.Windows.Forms.PictureBox();
+            this.lblSalida = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.panelBorder.SuspendLayout();
-            this.contenedor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imagen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boxCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boxMinimizar)).BeginInit();
+            this.contenedor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imagen)).BeginInit();
             this.SuspendLayout();
             // 
             // panelBorder
@@ -63,6 +64,42 @@
             this.panelBorder.Size = new System.Drawing.Size(382, 37);
             this.panelBorder.TabIndex = 2;
             this.panelBorder.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Mouse_Down);
+            // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = global::Picfanc.Properties.Resources.Restart_32px;
+            this.button1.Location = new System.Drawing.Point(3, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(38, 33);
+            this.button1.TabIndex = 10;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // boxCerrar
+            // 
+            this.boxCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.boxCerrar.BackgroundImage = global::Picfanc.Properties.Resources.Close_Window_32px;
+            this.boxCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.boxCerrar.Location = new System.Drawing.Point(339, 3);
+            this.boxCerrar.Name = "boxCerrar";
+            this.boxCerrar.Size = new System.Drawing.Size(37, 35);
+            this.boxCerrar.TabIndex = 0;
+            this.boxCerrar.TabStop = false;
+            this.boxCerrar.Click += new System.EventHandler(this.boxCerrar_Click);
+            // 
+            // boxMinimizar
+            // 
+            this.boxMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.boxMinimizar.BackgroundImage = global::Picfanc.Properties.Resources.Minimize_Window_32px;
+            this.boxMinimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.boxMinimizar.Location = new System.Drawing.Point(301, 3);
+            this.boxMinimizar.Name = "boxMinimizar";
+            this.boxMinimizar.Size = new System.Drawing.Size(37, 35);
+            this.boxMinimizar.TabIndex = 1;
+            this.boxMinimizar.TabStop = false;
+            this.boxMinimizar.Click += new System.EventHandler(this.boxMinimizar_Click);
             // 
             // btnAutomatico
             // 
@@ -111,6 +148,7 @@
             // 
             // contenedor
             // 
+            this.contenedor.Controls.Add(this.progressBar1);
             this.contenedor.Controls.Add(this.lblAutoEstado);
             this.contenedor.Controls.Add(this.label11);
             this.contenedor.Controls.Add(this.label3);
@@ -120,7 +158,7 @@
             this.contenedor.Controls.Add(this.imagen);
             this.contenedor.Location = new System.Drawing.Point(29, 133);
             this.contenedor.Name = "contenedor";
-            this.contenedor.Size = new System.Drawing.Size(324, 373);
+            this.contenedor.Size = new System.Drawing.Size(324, 401);
             this.contenedor.TabIndex = 7;
             // 
             // lblAutoEstado
@@ -156,6 +194,24 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "o";
             // 
+            // btnOnOff
+            // 
+            this.btnOnOff.Enabled = false;
+            this.btnOnOff.FlatAppearance.BorderSize = 0;
+            this.btnOnOff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOnOff.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOnOff.ForeColor = System.Drawing.Color.White;
+            this.btnOnOff.Image = global::Picfanc.Properties.Resources.Flash_Off_24px;
+            this.btnOnOff.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnOnOff.Location = new System.Drawing.Point(24, 336);
+            this.btnOnOff.Name = "btnOnOff";
+            this.btnOnOff.Size = new System.Drawing.Size(274, 53);
+            this.btnOnOff.TabIndex = 4;
+            this.btnOnOff.Text = "Encender";
+            this.btnOnOff.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnOnOff.UseVisualStyleBackColor = true;
+            this.btnOnOff.Click += new System.EventHandler(this.btnOnOff_Click);
+            // 
             // lblAutoTemp
             // 
             this.lblAutoTemp.AutoSize = true;
@@ -178,35 +234,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Temperatura";
             // 
-            // lblSalida
-            // 
-            this.lblSalida.AutoSize = true;
-            this.lblSalida.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSalida.ForeColor = System.Drawing.Color.White;
-            this.lblSalida.Location = new System.Drawing.Point(24, 526);
-            this.lblSalida.Name = "lblSalida";
-            this.lblSalida.Size = new System.Drawing.Size(28, 30);
-            this.lblSalida.TabIndex = 9;
-            this.lblSalida.Text = "...";
-            // 
-            // btnOnOff
-            // 
-            this.btnOnOff.Enabled = false;
-            this.btnOnOff.FlatAppearance.BorderSize = 0;
-            this.btnOnOff.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOnOff.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOnOff.ForeColor = System.Drawing.Color.White;
-            this.btnOnOff.Image = global::Picfanc.Properties.Resources.Flash_Off_24px;
-            this.btnOnOff.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnOnOff.Location = new System.Drawing.Point(24, 317);
-            this.btnOnOff.Name = "btnOnOff";
-            this.btnOnOff.Size = new System.Drawing.Size(274, 53);
-            this.btnOnOff.TabIndex = 4;
-            this.btnOnOff.Text = "Encender";
-            this.btnOnOff.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnOnOff.UseVisualStyleBackColor = true;
-            this.btnOnOff.Click += new System.EventHandler(this.btnOnOff_Click);
-            // 
             // imagen
             // 
             this.imagen.Location = new System.Drawing.Point(24, 13);
@@ -215,48 +242,33 @@
             this.imagen.TabIndex = 0;
             this.imagen.TabStop = false;
             // 
-            // button1
+            // lblSalida
             // 
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = global::Picfanc.Properties.Resources.Restart_32px;
-            this.button1.Location = new System.Drawing.Point(3, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(38, 33);
-            this.button1.TabIndex = 10;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.lblSalida.AutoSize = true;
+            this.lblSalida.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSalida.ForeColor = System.Drawing.Color.White;
+            this.lblSalida.Location = new System.Drawing.Point(24, 539);
+            this.lblSalida.Name = "lblSalida";
+            this.lblSalida.Size = new System.Drawing.Size(28, 30);
+            this.lblSalida.TabIndex = 9;
+            this.lblSalida.Text = "...";
             // 
-            // boxCerrar
+            // progressBar1
             // 
-            this.boxCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.boxCerrar.BackgroundImage = global::Picfanc.Properties.Resources.Close_Window_32px;
-            this.boxCerrar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.boxCerrar.Location = new System.Drawing.Point(339, 3);
-            this.boxCerrar.Name = "boxCerrar";
-            this.boxCerrar.Size = new System.Drawing.Size(37, 35);
-            this.boxCerrar.TabIndex = 0;
-            this.boxCerrar.TabStop = false;
-            this.boxCerrar.Click += new System.EventHandler(this.boxCerrar_Click);
-            // 
-            // boxMinimizar
-            // 
-            this.boxMinimizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.boxMinimizar.BackgroundImage = global::Picfanc.Properties.Resources.Minimize_Window_32px;
-            this.boxMinimizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.boxMinimizar.Location = new System.Drawing.Point(301, 3);
-            this.boxMinimizar.Name = "boxMinimizar";
-            this.boxMinimizar.Size = new System.Drawing.Size(37, 35);
-            this.boxMinimizar.TabIndex = 1;
-            this.boxMinimizar.TabStop = false;
-            this.boxMinimizar.Click += new System.EventHandler(this.boxMinimizar_Click);
+            this.progressBar1.BackColor = System.Drawing.Color.Black;
+            this.progressBar1.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.progressBar1.Location = new System.Drawing.Point(14, 315);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(295, 11);
+            this.progressBar1.TabIndex = 10;
+            this.progressBar1.Value = 10;
             // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
-            this.ClientSize = new System.Drawing.Size(382, 565);
+            this.ClientSize = new System.Drawing.Size(382, 578);
             this.Controls.Add(this.lblSalida);
             this.Controls.Add(this.contenedor);
             this.Controls.Add(this.sepManual);
@@ -270,11 +282,11 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Picfanc";
             this.panelBorder.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.boxCerrar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.boxMinimizar)).EndInit();
             this.contenedor.ResumeLayout(false);
             this.contenedor.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imagen)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.boxCerrar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.boxMinimizar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -299,6 +311,7 @@
         private System.Windows.Forms.Button btnOnOff;
         private System.Windows.Forms.Label lblSalida;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
 

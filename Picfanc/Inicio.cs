@@ -45,11 +45,12 @@ namespace Picfanc
             //color boton ON OFF Manual
             this.btnOnOff.BackColor = Color.FromArgb(20, 208, 120);
             this.sepManual.Visible = false;//Ocultar separador boton manual
-
+            this.btnOnOff.Visible = false;
             //Carga de imagenes en las cajas
            // this.cargarImagen(this.picAutomatico, imgFanOff);
             //this.cargarImagen(this.picManual, imgFanOn);
-            iniciar();
+            //iniciar();
+            //tempMan = new ClsManejadorTemperatura("COM4");
 
         }
 
@@ -62,7 +63,7 @@ namespace Picfanc
                 ts = null;
                 tr = null;
             }
-            tempMan = new ClsManejadorTemperatura("COM3");// Cargar Hilo para escuchar el puerto serial
+            tempMan = new ClsManejadorTemperatura("COM4");// Cargar Hilo para escuchar el puerto serial
             tempMan.Mensaje += new ClsManejadorTemperatura.MensajeDelegate(cmh_Mensaje);
             ts = new ThreadStart(tempMan.run);
             tr = new Thread(ts);
@@ -79,7 +80,8 @@ namespace Picfanc
         private void boxCerrar_Click(object sender, EventArgs e)
         {
             // Finalizar el programa
-            this.tempMan.detener();
+            if(this.tempMan != null)
+                this.tempMan.detener();
             this.Dispose();
             this.Close();
         }
@@ -207,7 +209,20 @@ namespace Picfanc
             else if(tempMan.modo == 1)
                 this.btnOnOff.Visible = true;
             //lblManualTemp.Text = tempMan.temp.ToString();
+            if (tempMan.conexion)
+                HabilitarControles(true);
+            else
+                HabilitarControles(false);
+
             lblAutoTemp.Text = tempMan.temp.ToString();
+        }
+
+        public void HabilitarControles(bool estado)
+        {
+            this.btnAutomatico.Enabled = estado;
+            this.btnManual.Enabled = estado;
+            this.btnOnOff.Enabled = estado;
+            
         }
 
 
@@ -231,12 +246,13 @@ namespace Picfanc
         {
             if (this.lblSalida.InvokeRequired)
             {
-                SetTextCallback2 d = new SetTextCallback2(SetText2);
+                SetTextCallback2 d = new SetTextCallback2(manajerControles);
                 this.Invoke(d, new object[] { text });
             }
             else
             {
                 cargarControles();
+                
                 //this.lblSalida.Text = text;
             }
         }

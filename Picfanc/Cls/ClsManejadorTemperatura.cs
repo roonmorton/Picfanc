@@ -26,7 +26,7 @@ namespace Picfanc
             try
             {
                 conexion = false;
-                temp =32;
+                temp = 32;
                 estadoFan = 2;
                 modo = 0; // 0 automatico, 1 manual
                 recibido = "DATA";
@@ -81,14 +81,20 @@ namespace Picfanc
                             //OnMensaje("30");
 
                         }
+                            
                         else if (modo == 1)//Fan Manual
                         {
+                            if (estadoFan == 1)
+                                mySerial.enviarDatos("1");
+                            else if (estadoFan == 2)
+                                mySerial.enviarDatos("2");
+                            /*
                             if (estadoFan == 1)
                             {
                                 mySerial.enviarDatos("2");// enviar valor para apagar ventilador
                             }
                             else if (estadoFan == 2)
-                                mySerial.enviarDatos("1"); // enviar valor para encender ventilador
+                                mySerial.enviarDatos("1"); // enviar valor para encender ventilador*/
 
                         }
                         //OnMensaje(estadoFan.ToString());

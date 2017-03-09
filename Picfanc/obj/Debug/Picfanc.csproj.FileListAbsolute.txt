@@ -8,3 +8,4 @@ C:\Users\Soporte\Documents\GitHub\Picfanc\Picfanc\obj\Debug\Picfanc.csproj.Gener
 C:\Users\Soporte\Documents\GitHub\Picfanc\Picfanc\obj\Debug\Picfanc.exe
 C:\Users\Soporte\Documents\GitHub\Picfanc\Picfanc\obj\Debug\Picfanc.pdb
 C:\Users\Soporte\Documents\GitHub\Picfanc\Picfanc\obj\Debug\Picfanc.Form1.resources
+C:\Users\Soporte\Documents\GitHub\Picfanc\Picfanc\obj\Debug\Picfanc.csprojResolveAssemblyReference.cache
