@@ -45,7 +45,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.imagen = new System.Windows.Forms.PictureBox();
             this.lblSalida = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.panelBorder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.boxCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.boxMinimizar)).BeginInit();
@@ -148,7 +147,6 @@
             // 
             // contenedor
             // 
-            this.contenedor.Controls.Add(this.progressBar1);
             this.contenedor.Controls.Add(this.lblAutoEstado);
             this.contenedor.Controls.Add(this.label11);
             this.contenedor.Controls.Add(this.label3);
@@ -253,16 +251,6 @@
             this.lblSalida.TabIndex = 9;
             this.lblSalida.Text = "...";
             // 
-            // progressBar1
-            // 
-            this.progressBar1.BackColor = System.Drawing.Color.Black;
-            this.progressBar1.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.progressBar1.Location = new System.Drawing.Point(14, 315);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(295, 11);
-            this.progressBar1.TabIndex = 10;
-            this.progressBar1.Value = 10;
-            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -311,7 +299,6 @@
         private System.Windows.Forms.Button btnOnOff;
         private System.Windows.Forms.Label lblSalida;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
 
