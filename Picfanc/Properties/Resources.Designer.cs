@@ -143,9 +143,39 @@ namespace Picfanc.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap RS_232_Female_32px {
+            get {
+                object obj = ResourceManager.GetObject("RS-232 Female_32px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Synchronize_32px {
             get {
                 object obj = ResourceManager.GetObject("Synchronize_32px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Thermometer_24px {
+            get {
+                object obj = ResourceManager.GetObject("Thermometer_24px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap VGA_24px {
+            get {
+                object obj = ResourceManager.GetObject("VGA_24px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

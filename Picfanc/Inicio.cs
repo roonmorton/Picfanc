@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
+using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -28,8 +30,8 @@ namespace Picfanc
         // función privada usada para mover el formulario actual 
 
 
-        private string imgFanOn = @"C:\Users\Soporte\Documents\GitHub\Picfanc\Picfanc\Recursos\The_Fan_On.gif";
-        private string imgFanOff = @"C:\Users\Soporte\Documents\GitHub\Picfanc\Picfanc\Recursos\The_Fan_Off.png";
+        private string imgFanOn = Path.Combine(Application.StartupPath, @"Recursos\The_Fan_On.gif");
+        private string imgFanOff = Path.Combine(Application.StartupPath, @"Recursos\The_Fan_Off.png");
         ClsManejadorTemperatura tempMan = null;
         ThreadStart ts = null;
         Thread tr = null;
@@ -51,31 +53,45 @@ namespace Picfanc
             //this.cargarImagen(this.picManual, imgFanOn);
             //iniciar();
             //tempMan = new ClsManejadorTemperatura("COM4");
+            //cargarImagen(imagen, imgFanOn);
 
+            actualizarPuertos();
         }
 
         private void iniciar()
         {
-            if (tempMan != null)
+            try
             {
-                tempMan.detener();
-                tempMan = null;
-                ts = null;
-                tr = null;
+
+                //MessageBox.Show(cmbPuertos.SelectedItem.ToString());
+                if (cmbPuertos.SelectedItem.ToString() != "" && cmbPuertos.SelectedIndex != 0)
+                {
+                    if (tempMan != null)
+                    {
+                        tempMan.detener();
+                        tempMan = null;
+                        ts = null;
+                        tr = null;
+                    }
+
+                    tempMan = new ClsManejadorTemperatura(cmbPuertos.SelectedItem.ToString());// Cargar Hilo para escuchar el puerto serial
+                    tempMan.Mensaje += new ClsManejadorTemperatura.MensajeDelegate(cmh_Mensaje);
+                    cambiarSensibilidadTemperatura();
+                    ts = new ThreadStart(tempMan.run);
+                    tr = new Thread(ts);
+                    tr.Start();
+                    cargarControles();
+                }
+                else {
+                    MessageBox.Show("No se a seleccionado ningun Puerto");
+                }
             }
-            tempMan = new ClsManejadorTemperatura("COM4");// Cargar Hilo para escuchar el puerto serial
-            tempMan.Mensaje += new ClsManejadorTemperatura.MensajeDelegate(cmh_Mensaje);
-            ts = new ThreadStart(tempMan.run);
-            tr = new Thread(ts);
-            tr.Start();
-            cargarControles();
+            catch (Exception ex)
+            {
+                MessageBox.Show("Excepcion_: " + ex.Message);
+            }
         }
 
-
-        public void liberar()
-        {
- 
-        }
 
         private void boxCerrar_Click(object sender, EventArgs e)
         {
@@ -140,32 +156,46 @@ namespace Picfanc
 
         private void cargarImagen(PictureBox box, string pathImagen)
         {
-            box.Image = Image.FromFile(pathImagen);
+            try
+            {
+                box.Image = Image.FromFile(pathImagen);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Excepcion: " +ex.Message); ;
+            }
         }
 
         // cambio de panel Automatico a Manual
         private void btnManual_Click(object sender, EventArgs e)
         {
-            //limpiarControles();
-
-            sepAutomatico.Visible = false;
-            sepManual.Visible = true;
-            tempMan.modo = 1;
-            /*if (panel1.Left == 384)
+            try
             {
-                panelAuto.Visible = false;
-                panelAuto.Left = 384;
+                //limpiarControles();
+
                 sepAutomatico.Visible = false;
-
-                panel1.Visible = false;
-                panel1.Left = 29;
-                panel1.Visible = true;
-                panel1.Refresh();
                 sepManual.Visible = true;
-                
-            }*/
+                tempMan.modo = 1;
+                /*if (panel1.Left == 384)
+                {
+                    panelAuto.Visible = false;
+                    panelAuto.Left = 384;
+                    sepAutomatico.Visible = false;
 
-            cargarControles(); //.....................................................................................................................................
+                    panel1.Visible = false;
+                    panel1.Left = 29;
+                    panel1.Visible = true;
+                    panel1.Refresh();
+                    sepManual.Visible = true;
+                
+                }*/
+
+                cargarControles(); //.....................................................................................................................................
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Exception "+ ex.Message); 
+            }
         }
 
 
@@ -285,7 +315,58 @@ namespace Picfanc
             iniciar();
         }
 
-        
+
+        private void actualizarPuertos()
+        {
+            try
+            {
+                
+                cmbPuertos.Items.Clear();
+                cmbPuertos.Items.Add("Seleccionar puerto");
+                cmbPuertos.SelectedIndex = 0;
+                foreach (string nombre in SerialPort.GetPortNames())
+                {
+                    cmbPuertos.Items.Add(nombre);
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        private void btnActualizarPuertos_Click(object sender, EventArgs e)
+        {
+            actualizarPuertos();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                cambiarSensibilidadTemperatura();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Exception: " + ex.Message);
+            }
+        }
+
+
+        public void cambiarSensibilidadTemperatura()
+        {
+            try
+            {
+                if (txtTemp.Text != "")
+                    tempMan.tempVariable = Int32.Parse(txtTemp.Text);
+                else
+                    txtTemp.Text = tempMan.tempVariable.ToString();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 
 

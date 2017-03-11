@@ -20,13 +20,15 @@ namespace Picfanc
         public int temp;
         public bool conexion;
         public int estadoFan;
+        public int tempVariable;
 
         public ClsManejadorTemperatura(string nombrePuerto)
         {
             try
             {
                 conexion = false;
-                temp = 32;
+                temp = 10;
+                tempVariable = 20;
                 estadoFan = 2;
                 modo = 0; // 0 automatico, 1 manual
                 recibido = "DATA";
@@ -57,14 +59,14 @@ namespace Picfanc
 
                             if (res)
                             {
-                                temp = Int32.Parse(recibido);
-                                if (temp > 30)
+                                temp = i;
+                                if (temp > tempVariable)
                                 {
                                     //OnMensaje("AonFan"); //encender ventilador en grafica 
                                     mySerial.enviarDatos("1"); // enviar valor para encender ventilador cuando la temperatura sea mayor a 30 grador 
                                     estadoFan = 1;
                                 }
-                                else if (temp < 30)
+                                else if (temp < tempVariable)
                                 {
                                     //OnMensaje("AoffFan");  // apagar ventilador en grafica
                                     mySerial.enviarDatos("2"); // enviar valor para apagar ventilador cuando la temperatura sea menor a 30 grados
@@ -75,7 +77,7 @@ namespace Picfanc
                             {
 
                                 // procesar no numerico
-                                //OnMensaje("valores no numerico");
+                                OnMensaje("temperatura es un valor no numerico: " + i.ToString());
                                 //  OnMensaje("AonFan");
                             }
                             //OnMensaje("30");

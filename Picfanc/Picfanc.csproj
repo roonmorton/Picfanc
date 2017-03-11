@@ -123,6 +123,15 @@
   <ItemGroup>
     <None Include="Recursos\Restart_32px.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\VGA_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\RS-232 Female_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\Thermometer_24px.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
